@@ -6,6 +6,8 @@ import org.mockito.Mockito;
 import p06_TirePressureMonitoringSystem.Alarm;
 import p06_TirePressureMonitoringSystem.Sensor;
 
+import java.lang.reflect.Field;
+
 public class AlarmTest {
 
     @Test
@@ -19,4 +21,20 @@ public class AlarmTest {
         Assert.assertTrue(alarm.getAlarmOn());
     }
 
+    @Test
+    public void alarmShouldBeOffIfInScope() throws NoSuchFieldException, IllegalAccessException {
+        Alarm alarm = new Alarm();
+
+        Field sensorField = Alarm.class.getDeclaredField("sensor");
+
+        sensorField.setAccessible(true);
+
+        Sensor sensor = Mockito.mock(Sensor.class);
+        Mockito.when(sensor.popNextPressurePsiValue()).thenReturn(18d);
+
+        sensorField.set(alarm,sensor);
+
+        Assert.assertFalse(alarm.getAlarmOn());
+
+    }
 }
