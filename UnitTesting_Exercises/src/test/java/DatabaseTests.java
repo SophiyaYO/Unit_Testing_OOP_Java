@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import p01_Database.Database;
 
@@ -8,6 +9,15 @@ import java.lang.reflect.Field;
 public class DatabaseTests {
 
     private static final Integer[] INITIAL_ELEMENTS = new Integer[]{1, 2, 3};
+
+    private Database database;
+
+    @Before
+    public void initElements() throws OperationNotSupportedException {
+        this.database = new Database(DatabaseTests.INITIAL_ELEMENTS);
+
+    }
+
 
     @Test(expected = OperationNotSupportedException.class)
     public void constructorShouldThrowExceptionWithLessThanOneElement()
@@ -24,7 +34,6 @@ public class DatabaseTests {
     @Test
     public void constructingDatabaseShouldIncreaseElementsCount()
             throws OperationNotSupportedException, NoSuchFieldException, IllegalAccessException {
-        Database database = new Database(DatabaseTests.INITIAL_ELEMENTS);
 
         Field elementsCount = Database.class.getDeclaredField("elementsCount");
         elementsCount.setAccessible(true);
@@ -37,7 +46,6 @@ public class DatabaseTests {
 
     @Test(expected = OperationNotSupportedException.class)
     public void addingNullElementShouldThrowException() throws OperationNotSupportedException {
-        Database database = new Database(DatabaseTests.INITIAL_ELEMENTS);
 
         database.add(null);
 
