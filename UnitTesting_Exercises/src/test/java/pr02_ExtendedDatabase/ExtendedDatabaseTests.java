@@ -45,6 +45,15 @@ public class ExtendedDatabaseTests {
         Assert.assertTrue(areEqual);
     }
 
+    @Test
+    public void findByUsernameShouldBeCaseSensitive() throws OperationNotSupportedException {
+        this.db.add(new Person(69, "b"));
 
+        Person found = this.db.findByUsername("b");
+
+        boolean areEqual = found.getId() == 69 && found.getUsername().equals("b");
+
+        Assert.assertTrue(areEqual);
+    }
 
 }
