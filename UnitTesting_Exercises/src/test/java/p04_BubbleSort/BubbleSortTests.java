@@ -5,9 +5,6 @@ import org.junit.Test;
 import p04_BubbleSortTest.Bubble;
 
 import java.util.Arrays;
-import java.util.Collections;
-
-import static org.junit.Assert.*;
 
 public class BubbleSortTests {
 
