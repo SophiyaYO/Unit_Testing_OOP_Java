@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 
 public class DatabaseTests {
 
-    private static final Integer[] INITIAL_ELEMENTS = new Integer[]{1, 2, 3};
+    private static final Integer[] INITIAL_ELEMENTS = new Integer[]{1, 2, 3,};
 
     private Database database;
 
@@ -49,5 +49,26 @@ public class DatabaseTests {
 
         database.add(null);
 
+    }
+
+    @Test
+    public void addElementShouldIncreaseElementsCount() throws OperationNotSupportedException {
+        database.add(12);
+
+        Assert.assertEquals("Not added",
+                database.getElements().length,
+                INITIAL_ELEMENTS.length + 1);
+
+    }
+
+    @Test
+    public void removeShouldRemoveOnlyLastElement() throws OperationNotSupportedException {
+        database.remove();
+
+        int length = database.getElements().length;
+
+        Assert.assertEquals("Removes more that the last element",
+                length,
+                DatabaseTests.INITIAL_ELEMENTS.length - 1);
     }
 }
