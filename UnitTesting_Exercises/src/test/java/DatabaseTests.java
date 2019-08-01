@@ -29,10 +29,17 @@ public class DatabaseTests {
         Field elementsCount = Database.class.getDeclaredField("elementsCount");
         elementsCount.setAccessible(true);
 
-        //here we provide the obj that we wont to take the field from
+        //here we provide the obj that we want to take the field from
         int fieldCurrentValue = elementsCount.getInt(database);
 
         Assert.assertEquals(DatabaseTests.INITIAL_ELEMENTS.length, fieldCurrentValue);
     }
 
+    @Test(expected = OperationNotSupportedException.class)
+    public void addingNullElementShouldThrowException() throws OperationNotSupportedException {
+        Database database = new Database(DatabaseTests.INITIAL_ELEMENTS);
+
+        database.add(null);
+
+    }
 }
