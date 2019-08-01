@@ -21,5 +21,16 @@ public class BubbleSortTests {
 
     }
 
+    @Test
+    public void sortShouldNotReorderElementsInSortedArray() {
+        int[] before = Arrays.stream(sorted)
+                .toArray();
+
+        Bubble.sort(sorted);
+
+        Assert.assertArrayEquals(before, sorted);
+
+    }
+
 
 }
