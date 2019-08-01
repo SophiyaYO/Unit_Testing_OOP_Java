@@ -16,6 +16,10 @@ public class Alarm {
         }
     }
 
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
+    }
+
     public boolean getAlarmOn() {
         return this.alarmOn;
     }

@@ -3,7 +3,8 @@ package p06_TirePressureMonitoringSystem;
 import java.util.Random;
 
 public class Sensor {
-    // The reading of the pressure value from the sensor is simulated in this implementation.
+    // The reading of the pressure value from the sensor
+    // is simulated in this implementation.
     // Because the focus of the exercise is on the other class.
 
     private static final double OFFSET = 16;
