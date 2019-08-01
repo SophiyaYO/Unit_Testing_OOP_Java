@@ -26,3 +26,4 @@ hs_err_pid*
 /.idea
 UnitTesting_Exercises.iml
 /.xml
+pom.xml
