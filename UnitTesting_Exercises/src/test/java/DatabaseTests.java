@@ -61,6 +61,11 @@ public class DatabaseTests {
 
     }
 
+    @Test(expected = OperationNotSupportedException.class)
+    public void setElementShouldThrowExceptionIfGreaterThanSixteenOrLessThanOne() throws OperationNotSupportedException {
+        Database database1 = new Database();
+    }
+
     @Test
     public void removeShouldRemoveOnlyLastElement() throws OperationNotSupportedException {
         database.remove();
@@ -71,4 +76,6 @@ public class DatabaseTests {
                 length,
                 DatabaseTests.INITIAL_ELEMENTS.length - 1);
     }
+
+
 }
