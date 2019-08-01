@@ -1,5 +1,6 @@
 package pr02_ExtendedDatabase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import p02_ExtendedDatabase.Database;
@@ -33,6 +34,15 @@ public class ExtendedDatabaseTests {
     public void findByUsernameShouldThrowAnExceptionWhitDuplicateUsernames() throws OperationNotSupportedException {
         this.db.add(new Person(12, "B"));
         this.db.findByUsername("B");
+    }
+
+    @Test
+    public void findByUsernameShouldReturnCorrectPerson() throws OperationNotSupportedException {
+        Person found = this.db.findByUsername("B");
+
+        boolean areEqual = found.getId() == 2 && found.getUsername().equals("B");
+
+        Assert.assertTrue(areEqual);
     }
 
 
