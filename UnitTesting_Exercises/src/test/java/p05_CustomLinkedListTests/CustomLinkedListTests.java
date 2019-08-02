@@ -25,4 +25,16 @@ public class CustomLinkedListTests {
         Assert.assertFalse(list.contains(13));
     }
 
+    @Test
+    public void indexOfShouldReturnOnlyFirstOccurrenceOfAValue() {
+        CustomLinkedList<Integer> list = new CustomLinkedList<>();
+        list.add(13);
+        list.add(42);
+        list.add(69);
+        list.add(13);
+
+        Assert.assertEquals(list.indexOf(13), 0);
+
+    }
+
 }
