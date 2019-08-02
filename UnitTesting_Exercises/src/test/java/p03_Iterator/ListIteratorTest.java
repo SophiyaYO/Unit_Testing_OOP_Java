@@ -63,4 +63,9 @@ public class ListIteratorTest {
     public void printShouldThrowExceptionOnEmptyCollection() throws OperationNotSupportedException {
         new ListIterator().print();
     }
+
+    @Test
+    public void printShouldReturnCorrectElement() {
+        Assert.assertEquals(this.list.print(), "A");
+    }
 }
