@@ -8,6 +8,14 @@ import javax.naming.OperationNotSupportedException;
 
 public class ListIteratorTest {
 
+    private static final String[] VALUES = {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+    };
+
     private ListIterator list;
 
     @Before
