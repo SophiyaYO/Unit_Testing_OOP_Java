@@ -1,5 +1,6 @@
 package p03_Iterator;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import p03_IteratorTest.ListIterator;
@@ -20,7 +21,7 @@ public class ListIteratorTest {
 
     @Before
     public void createList() throws OperationNotSupportedException {
-        this.list = new ListIterator();
+        this.list = new ListIterator(VALUES);
     }
 
     @Test(expected = OperationNotSupportedException.class)
@@ -30,7 +31,19 @@ public class ListIteratorTest {
 
     @Test
     public void moveShouldReturnTrueIfAbleToMove() {
-
+        for (int i = 0; i < VALUES.length; i++) {
+            Assert.assertTrue(list.move());
+        }
     }
 
+
+    @Test
+    public void moveShouldReturnFalseIfNoNextElement() {
+        for (int i = 0; i < VALUES.length - 1; i++) {
+            list.move();
+        }
+
+        Assert.assertFalse(list.move());
+
+    }
 }
