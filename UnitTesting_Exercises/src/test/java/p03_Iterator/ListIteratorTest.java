@@ -32,8 +32,11 @@ public class ListIteratorTest {
     @Test
     public void moveShouldReturnTrueIfAbleToMove() {
         for (int i = 0; i < VALUES.length; i++) {
-            Assert.assertTrue(list.move());
+            list.move();
         }
+
+        Assert.assertTrue(list.move());
+
     }
 
 
