@@ -52,4 +52,10 @@ public class ListIteratorTest {
         ListIterator listIterator = new ListIterator("A", "B");
         Assert.assertTrue(list.hasNext());
     }
+
+    @Test
+    public void hasNextShouldReturnFalseIfHasNoNext() throws OperationNotSupportedException {
+        ListIterator listIterator = new ListIterator("A");
+        Assert.assertTrue(list.hasNext());
+    }
 }
