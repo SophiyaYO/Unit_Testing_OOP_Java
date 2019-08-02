@@ -9,6 +9,6 @@ public class ListIteratorTest {
 
     @Test(expected = OperationNotSupportedException.class)
     public void creatingListIteratorShouldThrowExceptionIfNullIsPassedToTheConstructor() throws OperationNotSupportedException {
-       ListIterator listIterator =  new ListIterator(null);
+       ListIterator listIterator =  new ListIterator(null );
     }
 }
