@@ -56,6 +56,11 @@ public class ListIteratorTest {
     @Test
     public void hasNextShouldReturnFalseIfHasNoNext() throws OperationNotSupportedException {
         ListIterator listIterator = new ListIterator("A");
-        Assert.assertTrue(list.hasNext());
+        Assert.assertFalse(list.hasNext());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void printShouldThrowExceptionOnEmptyCollection() throws OperationNotSupportedException {
+        new ListIterator().print();
     }
 }
